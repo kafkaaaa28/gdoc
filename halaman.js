@@ -88,8 +88,20 @@ function login() {
     localStorage.setItem('username', userlogin);
     localStorage.setItem('password', passlogin);
   } else {
+    localStorage.setItem('modalStatus', 'open');
     trans.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
     mymodal.style.display = 'block';
     trans.classList.add('no-interaction');
   }
 }
+window.onload = function () {
+  if (localStorage.getItem('modalStatus') === 'open') {
+    trans.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    mymodal.style.display = 'block';
+    trans.classList.add('no-interaction');
+  } else {
+    mymodal.style.display = 'none';
+  }
+
+  localStorage.removeItem('modalStatus');
+};
