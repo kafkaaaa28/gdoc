@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  </head>
+  <body>
+    <div id="transparent">
+      <div class="container" id="bg">
+        <div class="border" id="border">
+          <form id="form-login">
+            <h2 class="h2" id="h2">please login</h2>
+            <div class="input">
+              <input class="isi" type="text" id="user-login" placeholder="Username" />
+              <input class="isi" type="password" id="pass-login" placeholder="Password" />
+            </div>
+            <div class="check">
+              <input type="checkbox" class="checkbox" id="hideshow" />
+              <p class="show">Show Password</p>
+            </div>
+            <div class="button">
+              <button class="btn" onclick="login()">login</button>
+            </div>
+            <div class="mendaftar">
+              <span id="span">Don't have an account yet ? <a href="#" id="daftar">please register</a></span>
+            </div>
+          </form>
+          <form id="form-register">
+            <h2 class="h2" id="h2">please register</h2>
+            <div class="input">
+              <input class="isi" type="text" placeholder="Username" />
+              <input class="isi" type="password" id="pass-register" placeholder="Password" />
+            </div>
+            <div class="check">
+              <input type="checkbox" class="checkbox" id="showhide" />
+              <p class="show">Show Password</p>
+            </div>
+            <div class="button">
+              <button class="btn" id="login">register</button>
+            </div>
+            <div class="mendaftar">
+              <span id="span">already have an account ? <a href="#" id="masuk">please login</a></span>
+            </div>
+          </form>
+        </div>
+        <!-- modal -->
+        <div class="modal" id="my-modal">
+          <div class="modal-body">
+            <div class="position-btn">
+              <button class="close" onclick="tutup()">x</button>
+            </div>
+            <h2 class="massage">Error</h2>
+            <p class="massage-content">The username or password is incorrect, or you have not registered</p>
+            <div class="position-btn">
+              <button class="close-btn" onclick="tutup()">close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="halaman.js"></script>
+  </body>
+</html>
