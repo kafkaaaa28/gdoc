@@ -3,7 +3,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 .container {
   height: 100vh;
@@ -18,6 +18,13 @@ body {
   width: 65%;
   box-shadow: 14px -8px 25px 16px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
+.heading {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .h2 {
   text-align: center;
   font-size: 20px;
@@ -27,6 +34,21 @@ body {
   text-transform: uppercase;
 }
 
+.close-login {
+  text-align: end;
+  background-color: transparent;
+  border: 0;
+  font-size: 20px;
+  font-family: arial, sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: font-size 0.3s;
+  padding-bottom: 3px;
+}
+.close-login:hover {
+  font-size: 25px;
+  color: #716f6f;
+}
 .input {
   display: flex;
   align-items: center;
@@ -42,6 +64,7 @@ body {
   border-bottom: 3px solid #000;
   outline: none;
 }
+
 .button {
   display: flex;
   align-items: center;
@@ -89,6 +112,10 @@ span {
 }
 a:hover {
   color: #000;
+}
+#alert {
+  text-align: center;
+  font-weight: 600;
 }
 .mendaftar {
   margin-top: 10px;
@@ -152,6 +179,82 @@ a:hover {
     filter: blur(12px) opacity(0%);
   }
 }
+
+.tracking-in-expand-fwd-top {
+  -webkit-animation: tracking-in-expand-fwd-top 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  animation: tracking-in-expand-fwd-top 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+@-webkit-keyframes tracking-in-expand-fwd-top {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-transform: translateZ(-700px) translateY(-500px);
+    transform: translateZ(-700px) translateY(-500px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: translateZ(0) translateY(0);
+    transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-expand-fwd-top {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-transform: translateZ(-700px) translateY(-500px);
+    transform: translateZ(-700px) translateY(-500px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: translateZ(0) translateY(0);
+    transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}
+.tracking-out-contract-bck-top {
+  -webkit-animation: tracking-out-contract-bck-top 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: tracking-out-contract-bck-top 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@-webkit-keyframes tracking-out-contract-bck-top {
+  0% {
+    -webkit-transform: translateZ(0) translateY(0);
+    transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    letter-spacing: -0.5em;
+    -webkit-transform: translateZ(-500px) translateY(-300px);
+    transform: translateZ(-500px) translateY(-300px);
+    opacity: 0;
+  }
+}
+@keyframes tracking-out-contract-bck-top {
+  0% {
+    -webkit-transform: translateZ(0) translateY(0);
+    transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    letter-spacing: -0.5em;
+    -webkit-transform: translateZ(-500px) translateY(-300px);
+    transform: translateZ(-500px) translateY(-300px);
+    opacity: 0;
+  }
+}
+
 /* load */
 .muter {
   border: 16px solid #9f9595;
@@ -224,6 +327,7 @@ a:hover {
   border-left: 0;
   border-right: 0;
   padding: 5px;
+  font-size: 12px;
 }
 .position-btn {
   display: flex;
@@ -232,6 +336,8 @@ a:hover {
 .close {
   border: 0;
   background-color: transparent;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
 }
 .close:hover {
   color: #676767;
@@ -264,6 +370,18 @@ a:hover {
     position: relative;
     left: 69px;
   }
+  .h2 {
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+  }
+  .close-login {
+    font-size: 25px;
+    padding-bottom: 5px;
+  }
+  .close-login:hover {
+    font-size: 30px;
+  }
 }
 @media (min-width: 1024px) {
   .border {
@@ -286,5 +404,19 @@ a:hover {
   }
   .modal {
     width: 40%;
+  }
+  .h2 {
+    /* position: absolute;
+    left: 46.5%; */
+    font-size: 25px;
+  }
+  .close-login {
+    /* position: absolute;
+    left: 66.5%; */
+    font-size: 25px;
+    padding-bottom: 5px;
+  }
+  .close-login:hover {
+    font-size: 30px;
   }
 }

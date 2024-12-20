@@ -6,13 +6,16 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div id="transparent">
       <div class="container" id="bg">
+        <p style="font-size: 30px" id="comming"></p>
         <div class="border" id="border">
           <form id="form-login">
-            <h2 class="h2" id="h2">please login</h2>
+            <p class="close-login" onclick="closex()">x</p>
+            <h2 class="h2" id="h2">sign in</h2>
             <div class="input">
               <input class="isi" type="text" id="user-login" placeholder="Username" />
               <input class="isi" type="password" id="pass-login" placeholder="Password" />
@@ -22,16 +25,16 @@
               <p class="show">Show Password</p>
             </div>
             <div class="button">
-              <button class="btn" onclick="login()">login</button>
+              <button class="btn" type="button" onclick="login()">login</button>
             </div>
             <div class="mendaftar">
-              <span id="span">Don't have an account yet ? <a href="#" id="daftar">please register</a></span>
+              <span id="span">Don't have an account yet ? <a href="#" id="daftar">sign up</a></span>
             </div>
           </form>
           <form id="form-register">
-            <h2 class="h2" id="h2">please register</h2>
+            <h2 class="h2" id="h2">sign up</h2>
             <div class="input">
-              <input class="isi" type="text" placeholder="Username" />
+              <input class="isi" type="text" id="user-register" placeholder="Username" />
               <input class="isi" type="password" id="pass-register" placeholder="Password" />
             </div>
             <div class="check">
@@ -39,10 +42,11 @@
               <p class="show">Show Password</p>
             </div>
             <div class="button">
-              <button class="btn" id="login">register</button>
+              <button class="btn" type="button" id="login" onclick="register()">register</button>
             </div>
+            <p id="alert"></p>
             <div class="mendaftar">
-              <span id="span">already have an account ? <a href="#" id="masuk">please login</a></span>
+              <span id="span">already have an account ? <a href="#" id="masuk">sgin in</a></span>
             </div>
           </form>
         </div>
@@ -50,12 +54,12 @@
         <div class="modal" id="my-modal">
           <div class="modal-body">
             <div class="position-btn">
-              <button class="close" onclick="tutup()">x</button>
+              <button class="close" type="button" onclick="tutup()">x</button>
             </div>
             <h2 class="massage">Error</h2>
-            <p class="massage-content">The username or password is incorrect, or you have not registered</p>
+            <p class="massage-content"></p>
             <div class="position-btn">
-              <button class="close-btn" onclick="tutup()">close</button>
+              <button class="close-btn" type="button" onclick="tutup()">close</button>
             </div>
           </div>
         </div>
