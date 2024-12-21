@@ -3,7 +3,14 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+.background-image {
+  background-image: url(spider.png);
+  background-position: 46%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 .container {
   height: 100vh;
@@ -12,11 +19,11 @@ body {
   justify-content: center;
 }
 .border {
+  background-color: white;
   padding: 20px;
   border-radius: 15px;
   height: auto;
   width: 65%;
-  box-shadow: 14px -8px 25px 16px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 .heading {
   margin-top: 10px;
@@ -108,7 +115,7 @@ body {
   font-size: 12px;
 }
 span {
-  font-size: 17px;
+  font-size: 10px;
 }
 a:hover {
   color: #000;
@@ -122,7 +129,10 @@ a:hover {
   margin-bottom: 10px;
   text-align: center;
 }
-
+.link {
+  text-decoration: none;
+  color: #51a3fb;
+}
 /* animation */
 .text-focus-in {
   -webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
@@ -406,13 +416,9 @@ a:hover {
     width: 40%;
   }
   .h2 {
-    /* position: absolute;
-    left: 46.5%; */
     font-size: 25px;
   }
   .close-login {
-    /* position: absolute;
-    left: 66.5%; */
     font-size: 25px;
     padding-bottom: 5px;
   }
