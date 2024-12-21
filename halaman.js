@@ -83,11 +83,14 @@ let trans = document.getElementById('transparent');
 mymodal.style.display = 'none';
 
 function tutup() {
+  let bgimage = document.getElementById('bg-image');
+
   mymodal.classList.add('tracking-out-contract-bck-top');
   setTimeout(() => {
     mymodal.style.display = 'none';
   }, 500);
-  trans.style.backgroundColor = 'white';
+  trans.classList.remove('bg-transparent');
+  trans.style.background = bgimage;
   trans.classList.remove('no-interaction');
 }
 
@@ -107,7 +110,7 @@ function login() {
     border.style.display = 'none';
     comming.textContent = `Comming soon`;
   } else {
-    trans.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    trans.classList.add('bg-transparent');
     mymodal.classList.add('tracking-in-expand-fwd-top');
     mymodal.classList.remove('tracking-out-contract-bck-top');
     massagecontent.textContent = 'The username or password is incorrect, or you have not registered'.toUpperCase();
