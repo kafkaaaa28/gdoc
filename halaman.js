@@ -6,11 +6,37 @@ let loader = document.createElement('div');
 let load = document.createElement('div');
 let bg = document.getElementById('bg');
 let comming = document.getElementById('comming');
-
+let navbars = document.getElementById('nav-bars');
+let navmenu = document.getElementById('nav-menu');
+border.style.display = 'none';
 formregister.style.display = 'none';
 loader.appendChild(load);
 bg.appendChild(loader);
 
+navbars.addEventListener('click', function () {
+  if (navmenu.style.display === 'none') {
+    navmenu.classList.remove('scale-out-hor-right');
+    navmenu.classList.add('scale-in-hor-right');
+    navmenu.style.display = 'flex';
+  } else {
+    navmenu.classList.remove('scale-in-hor-right');
+    navmenu.classList.add('scale-out-hor-right');
+    setTimeout(() => {
+      navmenu.style.display = 'none';
+    }, 500);
+  }
+});
+
+function account() {
+  loader.classList.add('muter');
+  loader.style.display = 'block';
+
+  setTimeout(() => {
+    border.style.display = 'block';
+    loader.style.display = 'none';
+  }, 1000);
+  border.classList.remove('tracking-out-contract-bck-top');
+}
 function closex() {
   border.classList.add('tracking-out-contract-bck-top');
   setTimeout(() => {
@@ -98,7 +124,7 @@ function login() {
   let passlogin = document.getElementById('pass-login').value;
   let userlogin = document.getElementById('user-login').value;
   let massagecontent = document.querySelector('.massage-content');
-
+  comming.style.color = 'white';
   if (userlogin.trim() === 'admin' && passlogin.trim() === 'admin123') {
     localStorage.setItem('sebagai', 'admin');
     localStorage.setItem('username', userlogin);
