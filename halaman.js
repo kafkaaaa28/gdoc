@@ -159,7 +159,7 @@ function login() {
     h1.style.display = 'none';
     content.style.display = 'block';
     body.classList.remove('no-scroll');
-  } else if (localStorage.getItem('username') === userlogin.trim().toLowerCase() && localStorage.getItem('password') === passlogin.trim()) {
+  } else if (localStorage.getItem('username') === userlogin.trim() && localStorage.getItem('password') === passlogin.trim()) {
     localStorage.setItem('refresh', 'true');
     useradmin.innerText = `${userlogin.toUpperCase()}`;
     logout.style.display = 'block';
