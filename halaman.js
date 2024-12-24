@@ -1,11 +1,7 @@
-let formregister = document.getElementById('form-register');
-let formlogin = document.getElementById('form-login');
-let masuk = document.getElementById('masuk');
 let border = document.getElementById('border');
 let loader = document.createElement('div');
 let load = document.createElement('div');
 let bg = document.getElementById('bg');
-let comming = document.getElementById('comming');
 let navbars = document.getElementById('nav-bars');
 let navclose = document.getElementById('nav-close');
 let navmenu = document.getElementById('nav-menu');
@@ -13,13 +9,12 @@ let account = document.getElementById('account');
 let content = document.querySelector('.login-user');
 let h1 = document.getElementById('h1');
 let useradmin = document.getElementById('user-admin');
-h1.textContent = `login terlebih dahulu untuk melihat content`.toUpperCase();
+h1.textContent = `login or register first to see content`.toUpperCase();
 content.style.display = 'none';
 load.style.display = 'none';
 let body = document.body;
 border.style.display = 'none';
 navclose.style.display = 'none';
-formregister.style.display = 'none';
 load.classList.add('muter');
 loader.appendChild(load);
 bg.appendChild(loader);
@@ -54,9 +49,11 @@ navclose.addEventListener('click', function () {
 account.addEventListener('click', function () {
   body.classList.add('no-scroll');
   border.classList.add('text-focus-in');
-  navbars.style.display = 'block';
-  navclose.style.display = 'none';
-  navmenu.classList.add('scale-out-hor-right');
+  if (window.innerWidth <= 1024) {
+    navbars.style.display = 'block';
+    navclose.style.display = 'none';
+    navmenu.classList.add('scale-out-hor-right');
+  }
   setTimeout(() => {
     border.style.display = 'block';
   }, 1000);
@@ -70,7 +67,14 @@ function closex() {
     border.style.display = 'none';
   }, 500);
 }
+
+// daftarr akunn ////
+let formregister = document.getElementById('form-register');
+let formlogin = document.getElementById('form-login');
 let daftar = document.getElementById('daftar');
+let masuk = document.getElementById('masuk');
+formregister.style.display = 'none';
+
 daftar.addEventListener('click', function () {
   border.classList.add('text-blur-out');
 
@@ -101,6 +105,7 @@ masuk.addEventListener('click', function () {
     border.style.display = 'block';
   }, 1500);
 });
+// daftar akun selesaii ///
 
 document.getElementById('hideshow').addEventListener('click', function () {
   let passlogin = document.getElementById('pass-login');
@@ -139,8 +144,10 @@ function login() {
   let passlogin = document.getElementById('pass-login').value;
   let userlogin = document.getElementById('user-login').value;
   let massagecontent = document.querySelector('.massage-content');
+  let comming = document.getElementById('comming');
+
   comming.style.color = 'white';
-  if (userlogin.trim() === 'admin' && passlogin.trim() === 'admin123') {
+  if (userlogin.trim().toLowerCase() === 'admin' && passlogin.trim() === 'admin123') {
     localStorage.setItem('sebagai', 'admin');
     localStorage.setItem('username', userlogin);
     localStorage.setItem('password', passlogin);
@@ -152,7 +159,7 @@ function login() {
     h1.style.display = 'none';
     content.style.display = 'block';
     body.classList.remove('no-scroll');
-  } else if (localStorage.getItem('username') === userlogin.trim() && localStorage.getItem('password') === passlogin.trim()) {
+  } else if (localStorage.getItem('username') === userlogin.trim().toLowerCase() && localStorage.getItem('password') === passlogin.trim()) {
     localStorage.setItem('refresh', 'true');
     useradmin.innerText = `${userlogin.toUpperCase()}`;
     logout.style.display = 'block';
