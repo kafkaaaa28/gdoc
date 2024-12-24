@@ -22,7 +22,7 @@ body {
   gap: 100px;
   padding: 10px;
   margin-top: 10px;
-  width: 130px;
+  width: 50%;
   z-index: 3;
   align-items: center;
   cursor: pointer;
@@ -39,11 +39,12 @@ nav {
   width: 1fr;
 }
 #nav-bars {
-  margin-right: 20px;
+  margin-right: 25px;
   cursor: pointer;
 }
 #nav-close {
-  margin-right: 20px;
+  margin-right: 25px;
+  cursor: pointer;
 }
 nav div span {
   font-size: 17px;
@@ -626,6 +627,12 @@ a:hover {
   nav {
     padding: 20px;
   }
+  #nav-bars {
+    padding-right: 20px;
+  }
+  #nav-close {
+    padding-right: 20px;
+  }
   nav div span {
     font-size: 25px;
   }
@@ -634,7 +641,7 @@ a:hover {
     padding-right: 13px;
   }
   #nav-menu {
-    width: 200px;
+    width: 50%;
     align-items: center;
   }
   .border {
