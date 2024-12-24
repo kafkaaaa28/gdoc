@@ -28,6 +28,9 @@ body {
   cursor: pointer;
 }
 nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
   display: flex;
   background-color: lightgray;
   justify-content: space-between;
@@ -199,6 +202,7 @@ a:hover {
 }
 
 .content {
+  margin-top: 60px;
   height: 100vh;
   display: grid;
   gap: 17px;
@@ -647,6 +651,7 @@ a:hover {
     font-size: 30px;
   }
   .content {
+    margin-top: 80px;
     grid-template-areas:
       'blck blck'
       'hijau abu'
@@ -738,6 +743,7 @@ a:hover {
     font-size: 30px;
   }
   .content {
+    margin-top: 80px;
     grid-template-areas:
       'blck blck hijau'
       'blck blck abu'
