@@ -26,6 +26,7 @@ body {
   z-index: 3;
   align-items: center;
   cursor: pointer;
+  margin-right: 20px;
 }
 nav {
   position: fixed;
@@ -38,7 +39,11 @@ nav {
   width: 1fr;
 }
 #nav-bars {
+  margin-right: 20px;
   cursor: pointer;
+}
+#nav-close {
+  margin-right: 20px;
 }
 nav div span {
   font-size: 17px;
