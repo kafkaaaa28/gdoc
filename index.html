@@ -10,7 +10,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
   </head>
   <body>
-    <div class="background-image" id="bg-image">
+    <div>
       <div id="transparent">
         <!-- navbar -->
         <nav>
@@ -21,8 +21,10 @@
           <ul>
             <li>
               <a id="nav-bars"><i class="fa-solid fa-bars"></i></a>
+              <a id="nav-close"><i class="fa-solid fa-x"></i></a>
             </li>
             <ul id="nav-menu">
+              <li id="user-admin"></li>
               <li>
                 <a><i class="fa-solid fa-house"></i>Home</a>
               </li>
@@ -30,12 +32,47 @@
                 <a><i class="fa-solid fa-address-card"></i>About</a>
               </li>
               <li>
-                <a onclick="account()"><i class="fa-solid fa-user"></i>Login</a>
+                <a id="account"><i class="fa-solid fa-user"></i>Login</a>
+                <a id="logout"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
               </li>
             </ul>
           </ul>
         </nav>
         <!-- navbar end -->
+        <!-- content -->
+        <h1 style="display: flex; align-items: center; justify-content: center; height: 100vh" id="h1"></h1>
+        <div class="login-user">
+          <div class="content">
+            <div class="billie-black">
+              <img src="billie-2.jpg" alt="img" />
+            </div>
+            <div class="billie-green">
+              <img src="billie-green.jpg" alt="img" />
+            </div>
+            <div class="billie-gray">
+              <img src="billie-cream.jpg" alt="img" />
+            </div>
+            <div class="billie-yellow">
+              <img src="billie-yellow.jpg" alt="img" />
+            </div>
+            <div class="billie-blue">
+              <img src="billie-1.jpg" alt="img" />
+            </div>
+            <div class="billie-cream">
+              <img src="billie-blue.jpg" alt="img" />
+            </div>
+            <div class="billie-yewheat">
+              <img src="billie-yewheat.jpg" alt="img" />
+            </div>
+            <div class="billie-2">
+              <img src="billie-black.jpg" alt="img" />
+            </div>
+            <div class="billie-1">
+              <img src="billie-gray.jpg" alt="img" />
+            </div>
+          </div>
+        </div>
+        <!-- content -->
         <div class="container" id="bg">
           <p style="font-size: 30px" id="comming"></p>
           <div class="border" id="border">
@@ -68,7 +105,7 @@
                 <p class="show">Show Password</p>
               </div>
               <div class="button">
-                <button class="btn" type="button" id="login" onclick="register()">register</button>
+                <button class="btn" type="button" id="regis-user" onclick="register()">register</button>
               </div>
               <p id="alert"></p>
               <div class="mendaftar">

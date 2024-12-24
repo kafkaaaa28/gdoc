@@ -7,37 +7,64 @@ let load = document.createElement('div');
 let bg = document.getElementById('bg');
 let comming = document.getElementById('comming');
 let navbars = document.getElementById('nav-bars');
+let navclose = document.getElementById('nav-close');
 let navmenu = document.getElementById('nav-menu');
+let account = document.getElementById('account');
+let content = document.querySelector('.login-user');
+let h1 = document.getElementById('h1');
+let useradmin = document.getElementById('user-admin');
+h1.textContent = `login terlebih dahulu untuk melihat content`.toUpperCase();
+content.style.display = 'none';
+load.style.display = 'none';
+let body = document.body;
 border.style.display = 'none';
+navclose.style.display = 'none';
 formregister.style.display = 'none';
+load.classList.add('muter');
 loader.appendChild(load);
 bg.appendChild(loader);
-
-navbars.addEventListener('click', function () {
-  if (navmenu.style.display === 'none') {
-    navmenu.classList.remove('scale-out-hor-right');
-    navmenu.classList.add('scale-in-hor-right');
-    navmenu.style.display = 'flex';
-  } else {
-    navmenu.classList.remove('scale-in-hor-right');
-    navmenu.classList.add('scale-out-hor-right');
-    setTimeout(() => {
-      navmenu.style.display = 'none';
-    }, 500);
-  }
+let logout = document.getElementById('logout');
+logout.style.display = 'none';
+logout.addEventListener('click', function () {
+  setTimeout(() => {
+    logout.style.display = 'none';
+    localStorage.clear();
+    location.reload();
+  }, 1000);
 });
 
-function account() {
-  loader.classList.add('muter');
-  loader.style.display = 'block';
+navbars.addEventListener('click', function () {
+  navbars.style.display = 'none';
+  navclose.style.display = 'block';
+  navmenu.classList.remove('scale-out-hor-right');
+  navmenu.classList.add('scale-in-hor-right');
+  navmenu.style.display = 'flex';
+});
 
+navclose.addEventListener('click', function () {
+  navbars.style.display = 'block';
+  navclose.style.display = 'none';
+  navmenu.classList.remove('scale-in-hor-right');
+  navmenu.classList.add('scale-out-hor-right');
+  setTimeout(() => {
+    navmenu.style.display = 'none';
+  }, 500);
+});
+
+account.addEventListener('click', function () {
+  body.classList.add('no-scroll');
+  border.classList.add('text-focus-in');
+  navbars.style.display = 'block';
+  navclose.style.display = 'none';
+  navmenu.classList.add('scale-out-hor-right');
   setTimeout(() => {
     border.style.display = 'block';
-    loader.style.display = 'none';
   }, 1000);
   border.classList.remove('tracking-out-contract-bck-top');
-}
+});
 function closex() {
+  account.style.display = 'block';
+  body.classList.remove('no-scroll');
   border.classList.add('tracking-out-contract-bck-top');
   setTimeout(() => {
     border.style.display = 'none';
@@ -55,15 +82,9 @@ daftar.addEventListener('click', function () {
   }, 1000);
 
   setTimeout(() => {
-    loader.classList.add('muter');
-    loader.style.display = 'block';
-  }, 1000);
-
-  setTimeout(() => {
     border.classList.remove('text-blur-out');
     border.style.display = 'block';
-    loader.style.display = 'none';
-  }, 2500);
+  }, 1500);
 });
 
 masuk.addEventListener('click', function () {
@@ -75,16 +96,10 @@ masuk.addEventListener('click', function () {
     border.style.display = 'none';
   }, 1000);
 
-  loader.classList.add('muter');
-  setTimeout(() => {
-    loader.style.display = 'block';
-  }, 1000);
-
   setTimeout(() => {
     border.classList.remove('text-blur-out');
     border.style.display = 'block';
-    loader.style.display = 'none';
-  }, 2500);
+  }, 1500);
 });
 
 document.getElementById('hideshow').addEventListener('click', function () {
@@ -129,13 +144,25 @@ function login() {
     localStorage.setItem('sebagai', 'admin');
     localStorage.setItem('username', userlogin);
     localStorage.setItem('password', passlogin);
+    localStorage.setItem('refresh', 'true');
+    useradmin.innerText = `${userlogin.toUpperCase()}`;
+    logout.style.display = 'block';
+    account.style.display = 'none';
     border.style.display = 'none';
-    comming.textContent = `Comming soon`;
+    h1.style.display = 'none';
+    content.style.display = 'block';
+    body.classList.remove('no-scroll');
   } else if (localStorage.getItem('username') === userlogin.trim() && localStorage.getItem('password') === passlogin.trim()) {
-    console.log(`user = ${userlogin} pw = ${passlogin}`);
+    localStorage.setItem('refresh', 'true');
+    useradmin.innerText = `${userlogin.toUpperCase()}`;
+    logout.style.display = 'block';
+    account.style.display = 'none';
     border.style.display = 'none';
-    comming.textContent = `Comming soon`;
+    h1.style.display = 'none';
+    content.style.display = 'block';
+    body.classList.remove('no-scroll');
   } else {
+    body.classList.add('no-scroll');
     trans.classList.add('bg-transparent');
     mymodal.classList.add('tracking-in-expand-fwd-top');
     mymodal.classList.remove('tracking-out-contract-bck-top');
@@ -149,13 +176,19 @@ function register() {
   let userregis = document.getElementById('user-register').value;
   let passregis = document.getElementById('pass-register').value;
   let massagecontent = document.querySelector('.massage-content');
+  let regisuser = document.getElementById('regis-user');
   let alert = document.getElementById('alert');
   if (userregis && passregis) {
     localStorage.setItem('sebagai', 'username');
     localStorage.setItem('username', userregis);
     localStorage.setItem('password', passregis);
-    alert.classList.add('text-focus-in');
-    alert.textContent = `you have successfully registered`;
+    load.style.display = 'block';
+    regisuser.appendChild(loader);
+    setTimeout(() => {
+      alert.classList.add('text-focus-in');
+      alert.textContent = `you have successfully registered`;
+      loader.style.display = 'none';
+    }, 1300);
   } else {
     trans.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
     mymodal.classList.add('tracking-in-expand-fwd-top');
@@ -165,3 +198,19 @@ function register() {
     trans.classList.add('no-interaction');
   }
 }
+window.onload = function () {
+  if (localStorage.getItem('refresh') === 'true') {
+    let storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+      useradmin.innerText = `${storedUsername.toUpperCase()}`;
+    }
+    logout.style.display = 'block';
+    account.style.display = 'none';
+    content.style.display = 'block';
+    border.style.display = 'none';
+    h1.style.display = 'none';
+    body.classList.remove('no-scroll');
+  } else {
+    content.style.display = 'none';
+  }
+};

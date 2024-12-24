@@ -5,20 +5,27 @@ body {
   padding: 0;
   font-family: 'Poppins', sans-serif;
 }
+.no-scroll {
+  overflow: hidden;
+}
+#h1 {
+  font-size: 18px;
+  text-align: center;
+}
 #nav-menu {
   display: none;
   position: absolute;
   background-color: lightgray;
   right: 0;
   height: 100vh;
-  /* display: flex; */
   flex-direction: column;
   gap: 100px;
   padding: 10px;
   margin-top: 10px;
   width: 130px;
-  z-index: 1;
+  z-index: 3;
   align-items: center;
+  cursor: pointer;
 }
 nav {
   display: flex;
@@ -44,13 +51,7 @@ nav ul li a i {
 .bg-transparent {
   background-color: rgba(0, 0, 0, 0.5);
 }
-.background-image {
-  background-image: url(spider.webp);
-  background-position: 46%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-}
+
 .container {
   height: 100vh;
   display: flex;
@@ -59,10 +60,14 @@ nav ul li a i {
 }
 .border {
   background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   padding: 20px;
   border-radius: 15px;
   height: auto;
   width: 65%;
+  z-index: 1;
+  position: absolute;
+  top: 150px;
 }
 .heading {
   margin-top: 10px;
@@ -110,7 +115,23 @@ nav ul li a i {
   border-bottom: 3px solid #000;
   outline: none;
 }
-
+#regis-user {
+  width: 100px;
+  position: relative;
+  font-size: 12px;
+  background-color: #51a3fb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+#regis-user:hover {
+  background-color: rgb(5, 235, 235);
+  color: black;
+}
 .button {
   display: flex;
   align-items: center;
@@ -171,6 +192,101 @@ a:hover {
 .link {
   text-decoration: none;
   color: #51a3fb;
+}
+
+.content {
+  height: 100vh;
+  display: grid;
+  gap: 17px;
+  padding: 20px;
+  grid-template-areas:
+    'blck blck'
+    'hijau hijau'
+    'abu abu'
+    'kuning biru'
+    'cream cream'
+    'yewheat yewheat'
+    'hitam hitam'
+    'ungu ungu';
+}
+
+.billie-black {
+  grid-area: blck;
+}
+
+.billie-black img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+.billie-green {
+  grid-area: hijau;
+}
+.billie-green img {
+  width: 100%;
+  height: auto;
+}
+.billie-gray {
+  grid-area: abu;
+}
+.billie-gray img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+.billie-yellow {
+  grid-area: kuning;
+  padding-right: 0;
+}
+.billie-yellow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.billie-blue {
+  grid-area: biru;
+  padding-left: 0;
+}
+.billie-blue img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.billie-cream {
+  grid-area: cream;
+  padding-left: 0;
+}
+.billie-cream img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.billie-yewheat {
+  grid-area: yewheat;
+  padding-left: 0;
+}
+.billie-yewheat img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.billie-2 {
+  grid-area: hitam;
+  padding-left: 0;
+}
+.billie-2 img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.billie-1 {
+  grid-area: ungu;
+  padding-left: 0;
+}
+.billie-1 img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 /* animation */
 .text-focus-in {
@@ -382,11 +498,13 @@ a:hover {
 
 /* load */
 .muter {
-  border: 16px solid #9f9595;
+  margin-left: 10px;
+  border: 5px solid #ffffff;
   border-radius: 50%;
-  border-top: 16px solid #000406;
-  width: 70px;
-  height: 70px;
+  border-top: 5px solid #000406;
+  width: 5px;
+  height: 5px;
+  z-index: 1;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
 }
@@ -414,8 +532,9 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1s;
+  z-index: 3;
   position: absolute;
+  top: 150px;
   margin-bottom: 30px;
   padding: 20px;
   border-radius: 15px;
@@ -488,6 +607,9 @@ a:hover {
   color: #000;
 }
 @media (min-width: 600px) and (max-width: 1024px) {
+  #h1 {
+    font-size: 26px;
+  }
   nav {
     padding: 20px;
   }
@@ -520,12 +642,24 @@ a:hover {
   .close-login:hover {
     font-size: 30px;
   }
+  .content {
+    grid-template-areas:
+      'blck blck'
+      'hijau abu'
+      'kuning biru'
+      'cream cream'
+      'yewheat hitam'
+      'ungu ungu'
+      'ungu ungu';
+  }
 }
 @media screen and (min-width: 1025px) {
   #nav-bars {
     display: none;
   }
-
+  #h1 {
+    font-size: 33px;
+  }
   #nav-menu {
     position: static;
     background-color: lightgray;
@@ -598,5 +732,13 @@ a:hover {
   }
   .close-login:hover {
     font-size: 30px;
+  }
+  .content {
+    grid-template-areas:
+      'blck blck hijau'
+      'blck blck abu'
+      'kuning biru abu'
+      'yewheat cream cream'
+      'hitam hitam ungu';
   }
 }
