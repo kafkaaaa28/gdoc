@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
+  transition: background-color 1s;
 }
 .no-scroll {
   overflow: hidden;
@@ -12,6 +13,11 @@ body {
   font-size: 18px;
   text-align: center;
 }
+.darkmode {
+  background-color: #0b1419;
+  color: white;
+}
+
 #nav-menu {
   display: none;
   position: absolute;
@@ -23,7 +29,7 @@ body {
   padding: 10px;
   margin-top: 10px;
   width: 50%;
-  z-index: 3;
+  z-index: 4;
   align-items: center;
   cursor: pointer;
   margin-right: 20px;
@@ -546,7 +552,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 3;
+  z-index: 4;
   position: absolute;
   top: 150px;
   margin-bottom: 30px;
@@ -620,6 +626,45 @@ a:hover {
   background-color: rgb(5, 235, 235);
   color: #000;
 }
+#fakebot {
+  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  position: absolute;
+  top: 150px;
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 15px;
+  height: auto;
+  width: 65%;
+  overflow: auto;
+  background-color: white;
+  box-shadow: 14px -8px 25px 16px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+#user-answer {
+  border-radius: 10px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+#question {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+#send-fakebot {
+  border-radius: 10px;
+  border: 0;
+  width: 60px;
+  height: 26px;
+  background-color: lightblue;
+}
+#send-fakebot:hover {
+  background-color: rgb(67, 72, 74);
+  color: white;
+}
 @media (min-width: 600px) and (max-width: 1024px) {
   #h1 {
     font-size: 26px;
@@ -643,6 +688,9 @@ a:hover {
   #nav-menu {
     width: 50%;
     align-items: center;
+  }
+  #question {
+    font-size: 20px;
   }
   .border {
     width: 40%;
@@ -721,6 +769,17 @@ a:hover {
     transition: font-size 0.5s;
   }
   nav ul li a:hover {
+    font-size: 23px;
+  }
+  #user-answer {
+    width: 400px;
+  }
+
+  #send-fakebot {
+    width: 100px;
+    height: 30px;
+  }
+  #question {
     font-size: 23px;
   }
   .border {

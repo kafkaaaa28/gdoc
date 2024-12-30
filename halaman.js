@@ -1,3 +1,43 @@
+let body = document.body;
+let darkmode = document.getElementById('dark-mode');
+let lightmode = document.getElementById('light-mode');
+lightmode.style.display = 'none';
+function mode(background) {
+  if (background === 'dark') {
+    body.classList.add('darkmode');
+    fakebot.style.color = 'white';
+    mymodal.style.color = 'white';
+    mymodal.style.backgroundColor = '#0b1419';
+    fakebot.style.backgroundColor = '#0b1419';
+    darkmode.classList.add('tracking-out-contract-bck-top');
+    setTimeout(() => {
+      darkmode.style.display = 'none';
+    }, 500);
+    lightmode.classList.add('tracking-in-expand-fwd-top');
+    setTimeout(() => {
+      lightmode.classList.remove('tracking-out-contract-bck-top');
+      lightmode.style.display = 'block';
+    }, 500);
+  } else if (background === 'light') {
+    fakebot.style.color = 'black';
+    mymodal.style.color = 'black';
+    mymodal.style.backgroundColor = 'white';
+    fakebot.style.backgroundColor = 'white';
+    body.classList.remove('darkmode');
+    lightmode.classList.add('tracking-out-contract-bck-top');
+    setTimeout(() => {
+      lightmode.classList.remove('tracking-in-expand-fwd-top');
+      lightmode.style.display = 'none';
+    }, 500);
+    darkmode.classList.add('tracking-in-expand-fwd-top');
+    setTimeout(() => {
+      darkmode.classList.remove('tracking-out-contract-bck-top');
+      darkmode.style.display = 'block';
+    }, 500);
+  }
+}
+
+let bot = document.getElementById('bot');
 let border = document.getElementById('border');
 let loader = document.createElement('div');
 let load = document.createElement('div');
@@ -12,7 +52,6 @@ let useradmin = document.getElementById('user-admin');
 h1.textContent = `login or register first to see content`.toUpperCase();
 content.style.display = 'none';
 load.style.display = 'none';
-let body = document.body;
 border.style.display = 'none';
 navclose.style.display = 'none';
 load.classList.add('muter');
@@ -158,6 +197,7 @@ function login() {
     border.style.display = 'none';
     h1.style.display = 'none';
     content.style.display = 'block';
+    bot.style.display = 'block';
     body.classList.remove('no-scroll');
   } else if (localStorage.getItem('username') === userlogin.trim() && localStorage.getItem('password') === passlogin.trim()) {
     localStorage.setItem('refresh', 'true');
@@ -167,6 +207,7 @@ function login() {
     border.style.display = 'none';
     h1.style.display = 'none';
     content.style.display = 'block';
+    bot.style.display = 'block';
     body.classList.remove('no-scroll');
   } else {
     body.classList.add('no-scroll');
@@ -179,10 +220,10 @@ function login() {
   }
 }
 
+let massagecontent = document.querySelector('.massage-content');
 function register() {
   let userregis = document.getElementById('user-register').value;
   let passregis = document.getElementById('pass-register').value;
-  let massagecontent = document.querySelector('.massage-content');
   let regisuser = document.getElementById('regis-user');
   let alert = document.getElementById('alert');
   if (userregis && passregis) {
@@ -213,6 +254,7 @@ window.onload = function () {
     }
     logout.style.display = 'block';
     account.style.display = 'none';
+    bot.style.display = 'block';
     content.style.display = 'block';
     border.style.display = 'none';
     h1.style.display = 'none';
@@ -221,3 +263,109 @@ window.onload = function () {
     content.style.display = 'none';
   }
 };
+
+// fake bot //
+let fakebot = document.getElementById('fakebot');
+let closebot = document.getElementById('close-bot');
+bot.style.display = 'none';
+fakebot.style.display = 'none';
+closebot.addEventListener('click', function () {
+  fakebot.classList.add('tracking-out-contract-bck-top');
+  setTimeout(() => {
+    fakebot.style.display = 'none';
+  }, 500);
+});
+
+bot.addEventListener('click', function () {
+  fakebot.classList.remove('tracking-out-contract-bck-top');
+  if (window.innerWidth <= 1024) {
+    navbars.style.display = 'block';
+    navclose.style.display = 'none';
+    navmenu.classList.add('scale-out-hor-right');
+  }
+  fakebot.classList.add('tracking-in-expand-fwd-top');
+  setTimeout(() => {
+    fakebot.style.display = 'block';
+  }, 500);
+});
+
+let question = document.getElementById('question');
+let useranswer = document.getElementById('user-answer');
+
+let init = 0;
+let data = {};
+
+const umur = () => {
+  const userAge = parseInt(data.usia);
+  if (userAge === 18) {
+    return 'sama';
+  } else if (userAge < 18) {
+    return 'lebih muda';
+  } else if (userAge > 18) {
+    return 'lebih tua';
+  }
+};
+
+const botsay = () => {
+  return [
+    `perkenalkan saya kafkabot, siapa nama kamu ? `,
+    `halo , ${data.nama} berapa usia kamu ? `,
+    `ohh, ${data.usia} wahh umur kamu ${umur()} dengan saya lohh , btw hobi kamu apa ?`,
+    `wawww hobi kamu ${data.hobi} menarik juga kalau rumah kamu dimana`,
+    `di ${data.alamat} kalau saya di bandung kapan kapan kita main ya,, babayyy`,
+  ];
+};
+
+question.innerHTML = botsay()[0];
+
+const botstart = function () {
+  init++;
+  if (useranswer.value === '') {
+    trans.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    mymodal.classList.add('tracking-in-expand-fwd-top');
+    mymodal.classList.remove('tracking-out-contract-bck-top');
+    massagecontent.innerHTML = 'please fill in all fields'.toUpperCase();
+    mymodal.style.display = 'block';
+    trans.classList.add('no-interaction');
+    return;
+  }
+  if (init === 1) {
+    setTimeout(() => {
+      data.nama = useranswer.value;
+      botdelay();
+    }, 1000);
+  } else if (init === 2) {
+    setTimeout(() => {
+      data.usia = useranswer.value;
+      botdelay();
+    }, 1000);
+  } else if (init === 3) {
+    setTimeout(() => {
+      data.hobi = useranswer.value;
+      botdelay();
+    }, 1000);
+  } else if (init === 4) {
+    setTimeout(() => {
+      data.alamat = useranswer.value;
+      botdelay();
+    }, 1000);
+  } else if (init === 5) {
+    finishing();
+  } else {
+    botend();
+  }
+};
+
+function botdelay() {
+  question.innerHTML = botsay()[init];
+  useranswer.value = '';
+}
+
+function botend() {
+  useranswer.value = '';
+  location.reload();
+}
+
+function finishing() {
+  question.innerHTML = 'Sampai jumpa, semoga harimu menyenankan!';
+}

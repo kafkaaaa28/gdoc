@@ -13,10 +13,14 @@
     <div>
       <div id="transparent">
         <!-- navbar -->
-        <nav>
-          <div>
+        <nav style="color: black">
+          <div style="display: flex">
             <span>Kafka</span>
             <span>Farel</span>
+            <div style="margin-left: 10px; font-size: 19px">
+              <a id="light-mode" onclick="mode('light')"><i class="fa-solid fa-sun"></i></a>
+              <a id="dark-mode" onclick="mode('dark')"><i class="fa-solid fa-moon"></i></a>
+            </div>
           </div>
           <ul>
             <li>
@@ -30,6 +34,9 @@
               </li>
               <li>
                 <a href="https://kafkaaaa28.github.io/kfkaa/"><i class="fa-solid fa-address-card"></i>About</a>
+              </li>
+              <li id="bot">
+                <a><i class="fa-solid fa-robot"></i>Fake Bot</a>
               </li>
               <li>
                 <a id="account"><i class="fa-solid fa-user"></i>Login</a>
@@ -123,6 +130,20 @@
               <p class="massage-content"></p>
               <div class="position-btn">
                 <button class="close-btn" type="button" onclick="tutup()">close</button>
+              </div>
+            </div>
+          </div>
+          <!-- fake bot -->
+          <div id="fakebot">
+            <div class="modal-body">
+              <div class="position-btn">
+                <button class="close" type="button" id="close-bot">x</button>
+              </div>
+              <h2 class="massage">Fake Bot</h2>
+              <p id="question"></p>
+              <div style="display: flex; justify-content: center">
+                <input id="user-answer" placeholder="answer" />
+                <button id="send-fakebot" type="button" onclick="botstart()">Send</button>
               </div>
             </div>
           </div>
