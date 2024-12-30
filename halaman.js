@@ -1,3 +1,5 @@
+let navmenu = document.getElementById('nav-menu');
+let nav = document.getElementById('nav');
 let body = document.body;
 let darkmode = document.getElementById('dark-mode');
 let lightmode = document.getElementById('light-mode');
@@ -6,9 +8,16 @@ function mode(background) {
   if (background === 'dark') {
     body.classList.add('darkmode');
     fakebot.style.color = 'white';
+    fakebot.style.backgroundColor = '#0b1419';
     mymodal.style.color = 'white';
     mymodal.style.backgroundColor = '#0b1419';
-    fakebot.style.backgroundColor = '#0b1419';
+    navmenu.style.backgroundColor = '#0b1419';
+    nav.style.backgroundColor = '#0b1419';
+    navmenu.style.color = 'white';
+    if (window.innerWidth <= 1024) {
+      navmenu.style.backgroundColor = '#ffffff';
+      navmenu.style.color = 'black';
+    }
     darkmode.classList.add('tracking-out-contract-bck-top');
     setTimeout(() => {
       darkmode.style.display = 'none';
@@ -19,11 +28,18 @@ function mode(background) {
       lightmode.style.display = 'block';
     }, 500);
   } else if (background === 'light') {
+    body.classList.remove('darkmode');
     fakebot.style.color = 'black';
     mymodal.style.color = 'black';
     mymodal.style.backgroundColor = 'white';
     fakebot.style.backgroundColor = 'white';
-    body.classList.remove('darkmode');
+    navmenu.style.backgroundColor = '#ffffff';
+    nav.style.backgroundColor = '#ffffff';
+    navmenu.style.color = 'black';
+    if (window.innerWidth <= 1024) {
+      navmenu.style.backgroundColor = '#0b1419';
+      navmenu.style.color = 'white';
+    }
     lightmode.classList.add('tracking-out-contract-bck-top');
     setTimeout(() => {
       lightmode.classList.remove('tracking-in-expand-fwd-top');
@@ -44,7 +60,6 @@ let load = document.createElement('div');
 let bg = document.getElementById('bg');
 let navbars = document.getElementById('nav-bars');
 let navclose = document.getElementById('nav-close');
-let navmenu = document.getElementById('nav-menu');
 let account = document.getElementById('account');
 let content = document.querySelector('.login-user');
 let h1 = document.getElementById('h1');

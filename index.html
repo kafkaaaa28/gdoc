@@ -13,7 +13,7 @@
     <div>
       <div id="transparent">
         <!-- navbar -->
-        <nav style="color: black">
+        <nav id="nav">
           <div style="display: flex">
             <span>Kafka</span>
             <span>Farel</span>
@@ -79,12 +79,12 @@
             </div>
           </div>
         </div>
-        <!-- content -->
+        <!--  end content -->
         <div class="container" id="bg">
           <p style="font-size: 30px" id="comming"></p>
           <div class="border" id="border">
             <form id="form-login">
-              <p class="close-login" onclick="closex()">x</p>
+              <p class="close-login" style="color: black" onclick="closex()">x</p>
               <h2 class="h2" id="h2">sign in</h2>
               <div class="input">
                 <input class="isi" type="text" id="user-login" placeholder="Username" />
@@ -98,7 +98,7 @@
                 <button class="btn" type="button" onclick="login()">login</button>
               </div>
               <div class="mendaftar">
-                <span id="span">Don't have an account yet ? <a href="#" class="link" id="daftar">sign up</a></span>
+                <span id="span" style="color: black">Don't have an account yet ? <a href="#" class="link" id="daftar">sign up</a></span>
               </div>
             </form>
             <form id="form-register">
